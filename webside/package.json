@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.51",
-    "@ai-sdk/openai": "^4.0.47",
+    "@ai-sdk/openai": "^4.0.71",
     "@tailwindcss/typography": "^0.5.20",
     "@types/hark": "^1.2.5",
     "@types/recordrtc": "^5.6.15",
