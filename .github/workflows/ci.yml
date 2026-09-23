@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  python:
+    name: Python syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile check (backend, dsk, launcher)
+        run: python -m compileall -q backend dsk main.py
+
+  electron-shell:
+    name: Electron shell syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Syntax check
+        run: |
+          node --check electron-app.js
+          node --check preload.js
+
+  secrets:
+    name: Secret hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if private local files are tracked
+        run: |
+          tracked=$(git ls-files | grep -E '(^|/)\.env$|\.env\.local$|cookies\.json$|data/.*\.json$' || true)
+          if [ -n "$tracked" ]; then
+            echo "Private local files must not be committed:"; echo "$tracked"; exit 1;
+          fi
+          echo "Secret hygiene OK"

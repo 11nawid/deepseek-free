@@ -1,0 +1,89 @@
+{
+  "name": "deepseek-free",
+  "version": "1.1.0",
+  "private": true,
+  "description": "DeepSeek Free — free AI chat desktop app with Agent mode, voice calls and screen recorder. No paid API key needed.",
+  "author": "11nawid",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/11nawid/deepseek-free.git"
+  },
+  "homepage": "https://github.com/11nawid/deepseek-free#readme",
+  "bugs": {
+    "url": "https://github.com/11nawid/deepseek-free/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-free",
+    "ai-chat",
+    "desktop-app",
+    "electron",
+    "nextjs",
+    "react",
+    "fastapi",
+    "ai-agent",
+    "autonomous-agent",
+    "voice-assistant",
+    "text-to-speech",
+    "speech-to-text",
+    "screen-recorder",
+    "free-api",
+    "openai-compatible",
+    "tailwindcss",
+    "python"
+  ],
+  "main": "electron-app.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "npm run build:next && electron-builder --win --mac --linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:next": "cd webside && npm run build"
+  },
+  "build": {
+    "appId": "com.deepseek.free",
+    "productName": "DeepSeek Free",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron-app.js",
+      "preload.js",
+      "main.py",
+      "backend/**/*",
+      "dsk/**/*",
+      "data/**/*",
+      "webside/.next/**/*",
+      "webside/public/**/*",
+      "webside/package.json",
+      "!**/node_modules/.cache/**"
+    ],
+    "extraResources": [
+      {
+        "from": "dist/backend.exe",
+        "to": "backend.exe",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "webside/public/favicon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "webside/public/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "webside/public/icon.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}

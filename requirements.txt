@@ -1,0 +1,15 @@
+# Pinned to a buildable version; 0.8.1b9 fails to build its libcurl download on some platforms.
+curl-cffi==0.13.0
+wasmtime
+numpy
+nodriver
+drissionpage
+# Extras required by dsk/server.py (Cloudflare cookie bypass)
+fastapi
+uvicorn
+pydantic
+pyvirtualdisplay
+python-dotenv
+faster-whisper
+scipy
+static-ffmpeg

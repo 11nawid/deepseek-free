@@ -1,0 +1,9 @@
+{
+    "cookies": {
+        "aws-waf-token": "YOUR_AWS_WAF_TOKEN",
+        "ds_session_id": "YOUR_DS_SESSION_ID",
+        ".thumbcache_6b2e5483f9d858d7c661c5e276b6a6ae": "",
+        "smidV2": "YOUR_SMID_V2"
+    },
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+}
