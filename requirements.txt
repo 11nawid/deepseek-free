@@ -1,5 +1,5 @@
 # Pinned to a buildable version; 0.8.1b9 fails to build its libcurl download on some platforms.
-curl-cffi==0.13.0
+curl-cffi==0.16.3
 wasmtime
 numpy
 nodriver
